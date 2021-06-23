@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">SSTYLE APP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides class="mainSlide" #slidesPrincipal>
+    <ion-slide>
+      <ion-grid fixed>
+        <form (ngSubmit)="login(fLogin)" #fLogin="ngForm">
+          <ion-row>
+            <ion-col>
+              <!-- <img src="/assets/logo_320x320.png"> -->
+              <img src="/assets/logo1.png">
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <ion-list>
+                  <ion-item>
+                    <ion-label>Usuario</ion-label>
+                    <ion-input name="usuario"
+                                type="text"
+                                [(ngModel)]="loginUser.usuario"
+                                required></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Contraseña</ion-label>
+                    <ion-input name="password"
+                                type="password"
+                                [(ngModel)]="loginUser.password"
+                                required></ion-input>
+                  </ion-item>
+                </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit"
+                          color="tertiary"
+                          shape="round">
+                Ingresar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col>
+              <h3>Cambiar Contraseña Inicial</h3>
+          </ion-col>
+        </ion-row>
+          <form (ngSubmit)="cambiopassword(fRegistro)" #fRegistro="ngForm">
+              <ion-row>
+                <ion-col>
+                  <img src="/assets/logo1.png">
+                </ion-col>
+              </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-list>
+                            <ion-item>
+                            <ion-label>Nueva Contraseña</ion-label>
+                            <ion-input name="passnuevo"
+                                        type="password"
+                                        [(ngModel)]="changePass.passnuevo"
+                                        required></ion-input>
+                            </ion-item>
+                            <ion-item>
+                            <ion-label>Contraseña (repetir)</ion-label>
+                            <ion-input name="passrepetir"
+                                        type="password"
+                                        [(ngModel)]="changePass.passrepetir"
+                                        required></ion-input>
+                            </ion-item>
+                        </ion-list>
+                        <p>La contraseña debe tener al menos 6 caracteres. Requiere Mínimo: una letra mayúscula, una letra minúsculas y un número</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                <ion-col>
+                    <ion-button type="submit"
+                                color="tertiary"
+                                shape="round">
+                        Cambiar Contraseña
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+          </form>
+        </ion-grid>
+      </ion-slide>
+  </ion-slides>
+
+</ion-content>

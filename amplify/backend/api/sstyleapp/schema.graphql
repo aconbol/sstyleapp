@@ -1,0 +1,15 @@
+type Fotos @model {
+  id: ID!
+  cliente: String!
+  username: String!
+  archivo: String!
+  timestamp: String
+  file: S3Object
+  description: String
+}
+
+type S3Object {
+    bucket: String!
+    region: String!
+    key: String!
+}

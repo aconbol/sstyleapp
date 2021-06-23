@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary"> Configuración Inicial </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <ion-list-header>Controles</ion-list-header>
+          <hr />
+          <br />
+          <ion-label class="title-block">Inicialización:</ion-label>
+          <div>
+            <ion-grid fixed class="recuadro">
+              <ion-row>
+                <ion-col size="2">
+                  <ion-label color="secondary">1. </ion-label>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-chip outline color="secondary" (click)="subirFoto()">
+                    <ion-icon name="duplicate-outline"></ion-icon>
+                    <ion-label class="label-bold">Elegir Foto</ion-label>
+                  </ion-chip>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="2">
+                  <ion-label color="secondary">2. </ion-label>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-chip outline color="secondary" (click)="setup()">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <ion-label class="label-bold">Alinear Imágen</ion-label>
+                  </ion-chip>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-col>
+        <ion-col size="8">
+          <ion-label class="label-title">1. Fotografía Elegida</ion-label>
+          <ion-card>
+            <div class="imgcenter">
+              <img [src]="imgBase64" />
+            </div>
+            <ion-card-header>
+              <ion-card-subtitle class="fontcolor">
+                Archivo: {{dataFoto.archivo}}
+              </ion-card-subtitle>
+              <ion-card-title class="fontcolortitle">
+                Cliente: {{dataFoto.cliente}}
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="fontcolor">
+              Creado: {{dataFoto.timestamp}}
+            </ion-card-content>
+          </ion-card>
+          <ion-label class="label-title">2. Fotografía Alineada</ion-label>
+          <ion-card>
+            <div class="imgcenter">
+              <img [src]="imgResult64" />
+            </div>
+            <ion-card-header>
+              <ion-card-title class="fontcolortitle">
+                Imágen Inicial
+              </ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-fab horizontal="end" vertical="top" edge slot="fixed">
+    <ion-fab-button color="tertiary">
+      <ion-icon name="settings-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button color="light" (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" (click)="verEstado()">
+        <ion-icon name="stats-chart"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

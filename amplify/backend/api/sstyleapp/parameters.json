@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "sstyleapp",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authsstyleapp8b98bcc3",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

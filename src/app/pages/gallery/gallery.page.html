@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        text="Regresar"
+        color="primary"
+        mode="ios"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">Galería de Fotos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="4">
+        <ion-label class="title-block">Elegir Fotografía</ion-label>
+        <div class="recuadro">
+          <ion-input
+            class="file-input"
+            color="secondary"
+            type="file"
+            accept="image/x-png,image/jpeg,image/gif"
+            (ionChange)="upload()"
+          >
+          </ion-input>
+        </div>
+        <ion-label class="title-block">Datos Fotografía</ion-label>
+        <form (ngSubmit)="uploadAWS(fupAws)" #fupAws="ngForm">
+          <div class="recuadro">
+            <ion-label>Cliente:</ion-label>
+            <ion-input
+              type="text"
+              [(ngModel)]="foto.cliente"
+              name="cliente"
+              color="secondary"
+              required="true"
+              minlength="3"
+              placeholder="Nombres"
+            ></ion-input>
+            <hr />
+            <ion-label>Descripción:</ion-label>
+            <ion-textarea
+              [(ngModel)]="foto.description"
+              name="description"
+              color="secondary"
+              placeholder="Descripción"
+              required
+            ></ion-textarea>
+            <hr />
+            <ion-button
+              block
+              type="submit"
+              shape="round"
+              fill="outline"
+              color="secondary"
+              >Aceptar
+            </ion-button>
+            <p>* Los Campos son obligatorios</p>
+          </div>
+        </form>
+      </ion-col>
+      <ion-col size="8">
+        <ion-card>
+          <div class="imgcenter">
+            <img [src]="base64File" />
+          </div>
+          <ion-card-header>
+            <ion-card-subtitle class="fontcolor">
+              Tipo: {{fileimg.type}} - Tamaño: {{ (fileimg.size /
+              1024).toFixed(1)}}KB
+            </ion-card-subtitle>
+            <ion-card-title class="fontcolortitle">
+              Archivo: {{fileimg.name}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="fontcolor">
+            Ultima Modificación {{fileimg.lastModifiedDate}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
